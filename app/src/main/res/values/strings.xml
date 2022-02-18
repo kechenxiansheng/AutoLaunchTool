@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">app启动工具</string>
+    <array name="app_list">
+        <item>钉钉</item>
+        <item>微信</item>
+        <item>QQ</item>
+    </array>
+    <string name="note_title">说明</string>
+    <string name="note_something">
+        1、需打开蓝牙（钉钉蓝牙打卡） \n
+        2、需打开悬浮窗权限（允许显示在其他应用上）\n
+        3、完全杀死进程时，定时启动无效 \n
+        4、不能设置密码/指纹等需密钥形式的锁屏，否则会导致启动服务无效 \n
+        5、只能针对选定的应用进行定时启动 \n
+    </string>
+    <string name="setting_btn_des">应用启动设置</string>
+    <string name="wake_time_des">唤醒时间：</string>
+    <string name="add_btn_des">添加</string>
+    <string name="app_text_des">当前启动应用：</string>
+</resources>

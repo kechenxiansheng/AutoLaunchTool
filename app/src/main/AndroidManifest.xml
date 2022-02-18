@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cm.launchtool">
+    <!--  网络  -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--  前台服务  -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!--  任务列表  -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--  任务队列调整  -->
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <!--  服务全屏Intent  -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <!-- 屏幕唤醒   -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <!--  蓝牙  -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!--  悬浮窗权限  -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LaunchTool">
+        <activity android:name=".ui.MainActivity"
+            android:launchMode="singleTask"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.SettingActivity" />
+
+        <service android:name=".service.AutoLaunchService"
+            android:exported="false">
+        </service>
+    </application>
+
+</manifest>
