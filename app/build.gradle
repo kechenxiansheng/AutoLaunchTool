@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.cm.launchtool"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 29     //不要超过29，会提示获取安装应用时提示 PackageSetting{5c71ee9 com.alibaba.android.rimet/10178} BLOCKED，需要适配才行
         versionCode 1
         versionName "1.0.5"
 

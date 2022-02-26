@@ -3,6 +3,7 @@ package com.cm.launchtool.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.util.Log
 import android.util.SparseIntArray
 import com.cm.launchtool.constants.getChooseApp
 import com.cm.launchtool.data.InstalledApp
@@ -18,6 +19,7 @@ object InStalledAppTool {
      * @param context 上下文
      * @param type app类型  0:全部应用 1:联网应用
      */
+    @SuppressLint("QueryPermissionsNeeded")
     private fun getInStalledAppInfo(context: Context, type: Int = 1): ArrayList<InstalledApp> {
         val appList: ArrayList<InstalledApp> = ArrayList()
         val siArray = SparseIntArray()
@@ -25,12 +27,11 @@ object InStalledAppTool {
         val packageManager: PackageManager = context.packageManager
         // 获取系统中已经安装的应用列表
         @SuppressLint("WrongConstant")
-        val installList = packageManager.getInstalledApplications(
-            PackageManager.PERMISSION_GRANTED
-        )
+        val installList = packageManager.getInstalledApplications(PackageManager.PERMISSION_GRANTED)
         //遍历所有目录（indices）
         for (i in installList.indices) {
             val item = installList[i]
+//            Log.d("LaunchTool@${javaClass.simpleName}", "item 包名：${item.packageName}" )
             // 去掉重复的应用信息
             if (siArray.indexOfKey(item.uid) >= 0) {
                 continue
@@ -65,6 +66,7 @@ object InStalledAppTool {
                 continue
             }
         }
+//        Log.d("LaunchTool@${javaClass.simpleName}", "应用列表1：$appList" )
         return appList // 返回 去重后的应用包队列
     }
 
@@ -97,6 +99,7 @@ object InStalledAppTool {
         }
         //归位：将当前选择的app放在第一位
         Collections.swap(appList,targetIndex,0)
+//        Log.d("LaunchTool@${javaClass.simpleName}", "应用列表2：$appList" )
         return appList
     }
 
